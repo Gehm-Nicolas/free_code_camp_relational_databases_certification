@@ -2,7 +2,7 @@
 
 --Instructions
 --For this project, you need to log in to PostgreSQL with psql to create your database. Do that by entering 
-psql --username=freecodecamp --dbname=postgres
+--psql --username=freecodecamp --dbname=postgres
 
 --You should create a database named universe
 CREATE DATABASE universe;
@@ -68,8 +68,6 @@ CREATE TABLE celestial_object(
 	CONSTRAINT fk_galaxy FOREIGN KEY (galaxy_id) REFERENCES galaxy(galaxy_id)
 );
 
-
-
 --Each table should have a primary key
 --Each primary key should automatically increment
 --Each table should have a name column
@@ -84,13 +82,10 @@ CREATE TABLE celestial_object(
 --Each "moon" should have a foreign key that references one of the rows in planet
 --Your database should have at least five tables
 
-'
-===========================
-Usage in PostgreSQL 16+
+/*
+Usage in PostgreSQL 16+:
 Underscores (_) can be inserted between digits in integer and numeric constants for visual grouping and have no effect on the value itself. 
-
-==========================
-'
+*/
 
 --The galaxy and star tables should each have at least six rows
 INSERT INTO galaxy(name,				shape, 			age_in_years,	size_in_light_years,	num_of_stars,		distance_in_light_years_from_earth)
@@ -101,8 +96,8 @@ VALUES  ('Milky Way',						'spiral',	 13600000000,				 120000,	400000000000,			 
 		('Small Magellanic Cloud',		 'irregular',	 13000000000,	  			   7000,  	  3000000000,									200000),
 		('Draco Dwarf',					'spheroidal',	 13000000000,	  			   2000,     	30000000,									260000);
 
-⚠️ Observação importante
-Para galáxias anãs, valores como size e number of stars variam conforme o método observacional, pois muitas estão em processo de canibalização gravitacional pela Via Láctea.
+--⚠️ Observação importante
+--Para galáxias anãs, valores como size e number of stars variam conforme o método observacional, pois muitas estão em processo de canibalização gravitacional pela Via Láctea.
 
 INSERT INTO star(name,			  			  				diameter_in_km,		age_in_years,	galaxy_id) 
 VALUES			('Sol',											   1390000,		  4600000000,			1),
@@ -116,6 +111,7 @@ VALUES			('Sol',											   1390000,		  4600000000,			1),
 				('NGC 346 Massive Star', 						  25000000,			 3000000, 			5),
 				('Draco Red Giant Star',						  90000000,		 13000000000, 	 		6);
 
+/*
 ⚠️ Nota científica rápida: fora da Via Láctea, não conseguimos catalogar estrelas individuais em grande detalhe. 
 Assim, as “principais estrelas” em galáxias anãs e nas Nuvens de Magalhães são as mais massivas, brilhantes ou cientificamente relevantes.
 OBS.:
@@ -124,7 +120,7 @@ OBS.:
 CANIS MAJOR DWARF GALAXY
 
 ⭐ Esta galáxia está sendo despedaçada pela Via Láctea, então poucas estrelas individuais são bem caracterizadas.
-
+*/
 --Each table should have at least three rows
 INSERT INTO celestial_object(name, description, diameter_in_light_years, weight_in_solar_mass, galaxy_id)
 VALUES ('Sagittarius A*',
@@ -153,8 +149,8 @@ VALUES ('Sagittarius A*',
 		100000000,
 		3);
 		
-⚠️ Observação importante: para muitos objetos celestes (como nebulosas e aglomerados), 
-“weight” = mass (massa) é sempre estimada, pois não há limites físicos definidos como em corpos sólidos.
+--⚠️ Observação importante: para muitos objetos celestes (como nebulosas e aglomerados), 
+--“weight” = mass (massa) é sempre estimada, pois não há limites físicos definidos como em corpos sólidos.
 
 --The planet table should have at least 12 rows
 --#Todos os valores são aproximações aceitas cientificamente.
